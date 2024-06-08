@@ -72,7 +72,10 @@ public class ContactServiceImpl implements ContactService{
 
     @Override
     public List<ContactDto> findByFirstNameLikeOrLastNameLike(String name) {
-        return null;
+        List<Contact> contacts = contactRepository.findByFirstNameLikeOrLastNameLike(name, name);
+        if (null == contacts || contacts.size() == 0)
+            return null;
+        return contacts.stream().map(ContactDto::new).collect(Collectors.toList());
     }
 
     @Override
@@ -82,37 +85,63 @@ public class ContactServiceImpl implements ContactService{
 
     @Override
     public List<ContactDto> findByAgeGreaterThan(int age) {
-        return null;
+        List<Contact> contacts = contactRepository.findByAgeGreaterThan(age);
+        if (null == contacts || contacts.size() == 0)
+            return null;
+        return contacts.stream().map(ContactDto::new).collect(Collectors.toList());
     }
 
     @Override
     public List<ContactDto> findByAgeLessThan(int age) {
-        return null;
+        List<Contact> contacts = contactRepository.findByAgeLessThan(age);
+        if (null == contacts || contacts.size() == 0)
+            return null;
+        return contacts.stream().map(ContactDto::new).collect(Collectors.toList());
     }
 
     @Override
     public List<ContactDto> findByAgeBetween(int from, int to) {
-        return null;
+        List<Contact> contacts = contactRepository.findByAgeBetween(from, to);
+        if (null == contacts || contacts.size() == 0)
+            return null;
+        return contacts.stream().map(ContactDto::new).collect(Collectors.toList());
     }
 
     @Override
     public List<ContactDto> findByVerified(boolean verified) {
-        return null;
+        List<Contact> contacts = null;
+        if (verified) {
+            contacts =  contactRepository.findByVerifiedIsTrue();
+        } else {
+            contacts = contactRepository.findByVerifiedIsFalse();
+        }
+        if (contacts == null || contacts.size() == 0)
+            return null;
+        return contacts.stream().map(ContactDto::new).collect(Collectors.toList());
     }
 
     @Override
     public List<ContactDto> findByDateOfBirthAfter(Instant date) {
-        return null;
+        List<Contact> contacts = contactRepository.findByDateOfBirthAfter(date);
+        if (null == contacts || contacts.size() == 0)
+            return null;
+        return contacts.stream().map(ContactDto::new).collect(Collectors.toList());
     }
 
     @Override
     public List<ContactDto> findByDateOfBirthBefore(Instant date) {
-        return null;
+        List<Contact> contacts = contactRepository.findByDateOfBirthBefore(date);
+        if (null == contacts || contacts.size() == 0)
+            return null;
+        return contacts.stream().map(ContactDto::new).collect(Collectors.toList());
     }
 
     @Override
     public List<ContactDto> findByDateOfBirthBeforeSortByDateOfBirthDesc(Instant date) {
-        return null;
+        List<Contact> contacts = contactRepository.findByDateOfBirthBeforeOrderByDateOfBirth(date);
+        if (null == contacts || contacts.size() == 0)
+            return null;
+        return contacts.stream().map(ContactDto::new).collect(Collectors.toList());
     }
 
 
