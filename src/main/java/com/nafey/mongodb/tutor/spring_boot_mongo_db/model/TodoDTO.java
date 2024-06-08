@@ -1,5 +1,6 @@
 package com.nafey.mongodb.tutor.spring_boot_mongo_db.model;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,8 +20,12 @@ public class TodoDTO {
     @Id
     private String id;
 
+    @NotNull(message="todo cannot be null")
     private String todo;
+
+    @NotNull(message="description cannot be null")
     private String description;
+    @NotNull(message="completed cannot be null")
     private Boolean completed;
 
     private Date createdAt;
