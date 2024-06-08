@@ -59,8 +59,3 @@ The app defines following CRUD APIs.
 
 You can test them using postman or any other rest client.
 
-## Learn more
-
-You can find the tutorial for this application on my blog -
-
-<https://bushansirgur.in/spring-boot-and-mongodb-rest-api-crud-tutorial-updated-2021/>
