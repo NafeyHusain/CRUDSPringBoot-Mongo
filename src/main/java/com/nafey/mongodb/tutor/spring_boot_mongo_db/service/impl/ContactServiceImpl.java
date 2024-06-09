@@ -1,7 +1,8 @@
-package com.nafey.mongodb.tutor.spring_boot_mongo_db.service;
+package com.nafey.mongodb.tutor.spring_boot_mongo_db.service.impl;
 
 import com.nafey.mongodb.tutor.spring_boot_mongo_db.model.Contact;
 import com.nafey.mongodb.tutor.spring_boot_mongo_db.repository.ContactRepository;
+import com.nafey.mongodb.tutor.spring_boot_mongo_db.service.ContactService;
 import com.nafey.mongodb.tutor.spring_boot_mongo_db.web.dto.ContactDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class ContactServiceImpl implements ContactService{
+public class ContactServiceImpl implements ContactService {
     @Autowired
     ContactRepository contactRepository;
 

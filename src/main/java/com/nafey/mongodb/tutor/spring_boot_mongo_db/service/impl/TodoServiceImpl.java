@@ -1,8 +1,9 @@
-package com.nafey.mongodb.tutor.spring_boot_mongo_db.service;
+package com.nafey.mongodb.tutor.spring_boot_mongo_db.service.impl;
 
 import com.nafey.mongodb.tutor.spring_boot_mongo_db.exception.TodoCollectionException;
 import com.nafey.mongodb.tutor.spring_boot_mongo_db.model.TodoDTO;
 import com.nafey.mongodb.tutor.spring_boot_mongo_db.repository.TodoRepository;
+import com.nafey.mongodb.tutor.spring_boot_mongo_db.service.TodoService;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TodoServiceImpl implements TodoService{
+public class TodoServiceImpl implements TodoService {
 
     @Autowired
     private TodoRepository todoRepository;
