@@ -5,10 +5,19 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ContactQueryRepository extends MongoRepository<Contact, String> {
     @Query("{'address.city':{$regex: '^?0'}}")
     List<Contact> findByCity(String city);
+
+    @Query("{emailId:?0}")
+    Optional<Contact> getContactById(String emailId);
+
+    @Query("{pages : {$lt: ?0}}")                                 // SQL Equivalent : SELECT * FROM BOOK where pages<?
+        //@Query("{ pages : { $gte: ?0 } }")                        // SQL Equivalent : SELECT * FROM BOOK where pages>=?
+        //@Query("{ pages : ?0 }")                                      // SQL Equivalent : SELECT * FROM BOOK where pages=?
+    List<Contact> getBooksByPages(Integer pages);
 
     @Query(value = "{'phone.mobile':{$regex: '^?0'}}", sort = "{ age: -1 }")
     List<Contact> findByMobile(String mobile);

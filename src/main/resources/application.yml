@@ -6,11 +6,3 @@ spring:
       host: localhost
       port: 27017
       database: contactmanagement
-logging:
-  level:
-    org:
-      springframework:
-        data:
-          mongodb:
-            core:
-              MongoTemplate: DEBUG

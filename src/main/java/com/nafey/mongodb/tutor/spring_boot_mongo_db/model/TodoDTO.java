@@ -35,8 +35,6 @@ public class TodoDTO {
     private Date createdAt;
     private Date updatedAt;
 
-    @Id
-    private String emailId;
     @Field("firstName")
     private String firstName;
     @Field("middleName")
